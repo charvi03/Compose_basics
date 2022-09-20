@@ -41,11 +41,13 @@ class Music_knob : ComponentActivity() {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Gray)
+                    .padding(10.dp)
             ) {
                 Row(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.border(1.dp, Color.Green, RoundedCornerShape(10.dp))
+                    modifier = Modifier.border(2.dp, Color.Green, RoundedCornerShape(10.dp))
+                        .padding(30.dp)
                 ) {
                     var volume by remember {
                         mutableStateOf(0f)
@@ -120,7 +122,7 @@ fun MusicKnob(
         mutableStateOf(0f)
     }
     Image(
-        painter = painterResource(id = R.drawable.knob),
+        painter = painterResource(id = R.drawable.img),
         contentDescription = "Music knob",
         modifier = modifier
             .fillMaxSize()
@@ -131,17 +133,17 @@ fun MusicKnob(
             }
             .pointerInteropFilter { event ->
                 touchX = event.x
-                touchX = event.y
+                touchY = event.y
                 val angle = -atan2(
                     centerX - touchX,
                     centerY - touchY
-                ) * (180 / PI).toFloat()
+                ) * (180f / PI).toFloat()
                 when (event.action) {
                     MotionEvent.ACTION_DOWN,
                     MotionEvent.ACTION_MOVE -> {
                         if (angle !in -limitingAngle..limitingAngle) {
                             val fixedAngle =
-                                if (angle !in -180f..limitingAngle) {
+                                if (angle in -180f..-limitingAngle) {
                                     360f + angle
                                 } else {
                                     angle
