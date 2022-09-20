@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Compose_basics"
         tools:targetApi="31">
         <activity
-            android:name=".Progress_bar"
+            android:name=".Music_knob"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Compose_basics">
