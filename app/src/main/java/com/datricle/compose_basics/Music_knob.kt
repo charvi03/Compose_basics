@@ -45,7 +45,7 @@ class Music_knob : ComponentActivity() {
                 Row(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.border(2.dp, Color.Green, RoundedCornerShape(10.dp))
+                    modifier = Modifier.border(1.dp, Color.Green, RoundedCornerShape(10.dp))
                 ) {
                     var volume by remember {
                         mutableStateOf(0f)

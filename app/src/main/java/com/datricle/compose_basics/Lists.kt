@@ -35,7 +35,7 @@ class Lists : ComponentActivity(){
                     )
                 }
             }*/
-            LazyColumn() {
+            LazyColumn {
                 itemsIndexed(
                     listOf("222" , "two", "three" , "four")
                 ){ index,string->
